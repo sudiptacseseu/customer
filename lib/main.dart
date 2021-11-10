@@ -1,3 +1,4 @@
+import 'package:customer/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(CustomerApp());
@@ -7,7 +8,7 @@ class CustomerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: HomeView(),
+      home: HomeView(),
       routes: {
         //'/homeView': (context) => HomeView(),
       },
