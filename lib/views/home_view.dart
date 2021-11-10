@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:customer/models/user_info.dart';
 import 'package:customer/network/network_call.dart';
 import 'package:customer/utils/hex_to_color.dart';
+import 'package:customer/views/user_detail_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -37,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
         children: <Widget>[
           createSearchField(),
           SizedBox(
-            height: 8.0,
+            height: 12.0,
           ),
           new Expanded(
             child: _searchResult.length != 0 || controller.text.isNotEmpty
@@ -111,12 +112,12 @@ class _HomeViewState extends State<HomeView> {
       List<Customers> data, int index, BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context) => UserDetails(
-        //               userData: data[index],
-        //             )));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => UserDetailView(
+                      userData: data[index],
+                    )));
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 0.0, bottom: 8.0),
@@ -153,7 +154,7 @@ class _HomeViewState extends State<HomeView> {
                             ? data[index].name.toString()
                             : "Name not found",
                         style: TextStyle(
-                            fontSize: 16.0,
+                            fontSize: 15.0,
                             color: Colors.black87,
                             fontWeight: FontWeight.bold),
                         overflow: TextOverflow.ellipsis,
@@ -164,7 +165,7 @@ class _HomeViewState extends State<HomeView> {
                             ? data[index].phone.toString()
                             : "Phone not found",
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 13.0,
                           color: Colors.black54,
                         ),
                         overflow: TextOverflow.ellipsis,
